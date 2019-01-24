@@ -49,8 +49,25 @@ public class PersonService {
     return new Person();
   }
 
+
+
+
+
   public void addPerson(Person person){
-    personsList.add(person);
+
+    int controller = 0;
+
+    for (int i = 1; i < personsList.size(); i++)
+    if (personsList.get(i).getID() == person.getID()) {
+      controller += 1;
+    }
+
+    if (controller == 0) {
+      personsList.add(person);
+    }
+
+
+
   }
 
   public List<Person> getPersons(){

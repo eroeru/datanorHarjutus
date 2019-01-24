@@ -9,4 +9,8 @@ public class Person {
   private String lastName;
   private long socialSecurityId;
 
+  public long getID() {return socialSecurityId;}
+
+
+
 }
