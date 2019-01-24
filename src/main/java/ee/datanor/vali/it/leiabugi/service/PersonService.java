@@ -57,7 +57,7 @@ public class PersonService {
 
     int controller = 0;
 
-    for (int i = 1; i < personsList.size(); i++)
+    for (int i = 0; i < personsList.size(); i++)
     if (personsList.get(i).getID() == person.getID()) {
       controller += 1;
     }
