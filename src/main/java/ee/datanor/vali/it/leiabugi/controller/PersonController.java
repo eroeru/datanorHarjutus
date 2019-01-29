@@ -10,6 +10,21 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+
+//Palun lisada juurde uus kontrolleri meetod millega saaks olemasolevaid kasutajaid muuta,
+// sisuliselt on tegu sarnase meetodiga nagu on kasutaja lisamine, kuid muutmiseks kasutatakse REST standardite järgi HTTP POST mitte PUT.
+
+
+//        Kui muudetavat kasutajat listist ei leita siis tuleks visata viga,
+//        kui kasutaja on olemas siis muuta listi siis kasutaja ees või perenime, isikukoodi muuta ei saa.
+
+//        Samuti täiendada ka praegust kasutaja lisamise funktsiooni nii, et kui sisestada isikut isikukoodiga mis juba on olemas siis visata viga.
+
+//        Lisada juurde ka HTTP DELETE kontrolleri meetod millega saab isikukoodi alusel isikuid nimekirjast kustutada
+
+
+
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/person")
@@ -35,5 +50,19 @@ public class PersonController {
   public void addPerson(@RequestBody Person item){
     personService.addPerson(item);
   }
+
+
+
+  @RequestMapping(value = "/", method = RequestMethod.POST)
+  public void changePerson(@PathVariable String firstName, String lastName){
+    personService.setFirstName(String firstName);
+    personService.setLastName(String lastName);
+  }
+
+
+  @RequestMapping(value = "/", method = RequestMethod.DELETE)
+  public void Person deletePerson(@PathVariable Long socialSecurityId){
+    personService.deletePerson(socialSecurityId);
+
 
 }
