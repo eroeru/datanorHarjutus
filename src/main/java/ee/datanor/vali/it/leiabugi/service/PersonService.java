@@ -9,9 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
+//Ülesanne:
+
+
+//Palun lisada juurde uus kontrolleri meetod millega saaks olemasolevaid kasutajaid muuta, sisuliselt on tegu sarnase meetodiga nagu on kasutaja lisamine, kuid muutmiseks kasutatakse REST standardite järgi HTTP POST mitte PUT.
+//        Kui muudetavat kasutajat listist ei leita siis tuleks visata viga, kui kasutaja on olemas siis muuta listi siis kasutaja ees või perenime, isikukoodi muuta ei saa.
+//        Samuti täiendada ka praegust kasutaja lisamise funktsiooni nii, et kui sisestada isikut isikukoodiga mis juba on olemas siis visata viga.
+//        Lisada juurde ka HTTP DELETE kontrolleri meetod millega saab isikukoodi alusel isikuid nimekirjast kustutada
+
+
 @Slf4j
 @Service
 public class PersonService {
+
+
 
   List<Person> personsList = new ArrayList<>();
 
