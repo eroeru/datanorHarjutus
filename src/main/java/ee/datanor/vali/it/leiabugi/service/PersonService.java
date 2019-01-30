@@ -50,37 +50,46 @@ public class PersonService {
     }
 
 
-//
-//
-//  Esialgne:
-//
-//  public void addPerson(Person person){
-//
-//    int controller = 0;
-//
-//    for (int i = 0; i < personsList.size(); i++)
-//      if (personsList.get(i).getSocialSecurityId() == person.getSocialSecurityId()) {
-//        controller += 1;
-//      }
-//
-//    if (controller == 0) {
-//      personsList.add(person);
-//    }
-//
-
-
-    public boolean addPerson(Person person) throws Exception {
+    public void addPerson(Person person) throws Exception {
 
         for (Person isik : personsList) {
             if (person.getSocialSecurityId() == isik.getSocialSecurityId()) {
-                return false;
+
                 throw new Exception("error");
             }
         }
-//try, catch?
+
 
         personsList.add(person);
-        return true;
+
+    }
+
+
+    public void changePerson(Person person) throws Exception {
+        for (Person i : personsList) {
+
+            int controller = 0;
+
+            if (person.getSocialSecurityId() == i.getSocialSecurityId()) {
+
+                person.setFirstName(i.getFirstName());
+                person.setLastName(i.getLastName());
+                controller += 1;
+            } else if (controller > 0) {
+                throw new Exception("error");
+            }
+        }
+
+    }
+
+
+    public void deletePerson(Long socialSecurityId) {
+
+        Optional<Person> person = personsList.stream().filter((p -> p.getSocialSecurityId() == socialSecurityId)).findAny();
+        if (person.isPresent()) {
+            personsList.remove(person);
+        }
+
     }
 
 

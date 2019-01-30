@@ -10,9 +10,6 @@ public class Person {
   private long socialSecurityId;
 
 
-  //neid järgnevaid gettereid-settereid ilmselt poleks hetkel vajagi, kuna getSocialSecurityId töötab niisamagi (ilmselt tänu Spring @Autowired vms),
-  // kuid kuna me oleme õppinud neid panema ning muidu kuvab mu seadistuse järgi punaselt, siis jätsin sisse
-  //Peab mainima, et me *ei ole* õppinud Springi kasutama. eile kuulsime sellest esmakordselt.
 
   public String getFirstName() {
     return firstName;
@@ -43,8 +40,6 @@ public class Person {
   }
 
 
-
-//  public long getID() {return socialSecurityId;} - pole vaja, algselt kirjutasin, sest IntelliJ-s kuvas getSocialSecurityId kui viga
 
 
 
