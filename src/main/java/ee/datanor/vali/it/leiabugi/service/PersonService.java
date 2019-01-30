@@ -35,12 +35,12 @@ public class PersonService {
         personsList.add(firstP);
         personsList.add(secondP);
         personsList.add(thridP);
-//    log.info("init done"); - log.info-d kommenteerisin Peetri eeskujul välja, kuna hetkel on IntelliJ seadistatud nii, et kuvab veana
+        log.info("init done");
     }
 
 
     public Person getPerson(Long socialSecurityId) {
-//    log.info("personList size {} {}", personsList.size(), socialSecurityId);
+    log.info("personList size {} {}", personsList.size(), socialSecurityId);
 
         Optional<Person> person = personsList.stream().filter((p -> p.getSocialSecurityId() == socialSecurityId)).findAny();
         if (person.isPresent()) {
